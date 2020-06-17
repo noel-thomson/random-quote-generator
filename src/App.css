@@ -22,6 +22,33 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 0 10%;
+}
+
+.btn {
+  padding: 15px;
+  border-radius: 0;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  text-transform: uppercase;
+  background: white;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: gainsboro;
+}
+
+#twitterIcon {
+  margin-top: 28px;
+  color: rgb(29, 161, 242);
+  transition: 0.3s;
+}
+
+#twitterIcon:hover {
+  color: rgb(26, 145, 218);
 }
 
 .App-link {
