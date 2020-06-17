@@ -6,14 +6,26 @@ function App() {
   const [quotes, setQuotes] = useState([]);
   const [index, setIndex] = useState(null);
 
-  useEffect(async () => {
-    const data = await fetch(
-      "https://gist.githubusercontent.com/natebass/b0a548425a73bdf8ea5c618149fe1fce/raw/f4231cd5961f026264bb6bb3a6c41671b044f1f4/quotes.json"
-    );
-    const quotes = await data.json();
-    setQuotes(quotes);
-    setIndex(Math.floor(Math.random() * quotes.length));
+  useEffect(() => {
+    async function fetchData() {
+      const data = await fetch(
+        "https://gist.githubusercontent.com/natebass/b0a548425a73bdf8ea5c618149fe1fce/raw/f4231cd5961f026264bb6bb3a6c41671b044f1f4/quotes.json"
+      );
+      const quotes = await data.json();
+      setQuotes(quotes);
+      setIndex(Math.floor(Math.random() * quotes.length));
+    }
+    fetchData();
   }, []);
+
+  // useEffect(async () => {
+  //   const data = await fetch(
+  //     "https://gist.githubusercontent.com/natebass/b0a548425a73bdf8ea5c618149fe1fce/raw/f4231cd5961f026264bb6bb3a6c41671b044f1f4/quotes.json"
+  //   );
+  //   const quotes = await data.json();
+  //   setQuotes(quotes);
+  //   setIndex(Math.floor(Math.random() * quotes.length));
+  // }, []);
 
   function getSelectedQuote() {
     if (!quotes.length || !Number.isInteger(index)) {
